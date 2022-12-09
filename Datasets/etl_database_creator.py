@@ -1,5 +1,5 @@
 import pandas as pd
-from db import engine
+from sqlalchemy import create_engine
 
 
 def cleansing(df, column):
@@ -71,13 +71,13 @@ def create_df_aux(df, col1, col2, sep):
     return df_aux
 
 
-df_amazon = pd.read_csv("./Datasets/amazon_prime_titles.csv")
+df_amazon = pd.read_csv("datasets/amazon_prime_titles.csv")
 df_amazon['service'] = 'Amazon'
-df_disney = pd.read_csv("./Datasets/disney_plus_titles.csv")
+df_disney = pd.read_csv("datasets/disney_plus_titles.csv")
 df_disney['service'] = 'Disney'
-df_hulu = pd.read_csv("./Datasets/hulu_titles.csv")
+df_hulu = pd.read_csv("datasets/hulu_titles.csv")
 df_hulu['service'] = 'Hulu'
-df_netflix = pd.read_json("./Datasets/netflix_titles.json")
+df_netflix = pd.read_json("datasets/netflix_titles.json")
 df_netflix['service'] = 'Netflix'
 
 df_title = pd.concat([df_amazon, df_disney, df_hulu,
@@ -147,14 +147,14 @@ df_title_service = df_title_service.merge(
 df_title_service.drop(['title', 'service'], axis=1, inplace=True)
 
 
-#file_db = create_engine('sqlite:///./Database/titles.db')
+file_db = create_engine('sqlite:///./database/titles.db')
 
-df_title.to_sql('title', engine, if_exists='replace', index=False)
-df_actor.to_sql('actor', engine, if_exists='replace', index=False)
-df_listed_in.to_sql('listed_in', engine, if_exists='replace', index=False)
-df_service.to_sql('service', engine, if_exists='replace', index=False)
-df_title_actor.to_sql('title_actor', engine, if_exists='replace', index=False)
-df_title_listed_in.to_sql('title_listed_in', engine,
+df_title.to_sql('title', file_db, if_exists='replace', index=False)
+df_actor.to_sql('actor', file_db, if_exists='replace', index=False)
+df_listed_in.to_sql('listed_in', file_db, if_exists='replace', index=False)
+df_service.to_sql('service', file_db, if_exists='replace', index=False)
+df_title_actor.to_sql('title_actor', file_db, if_exists='replace', index=False)
+df_title_listed_in.to_sql('title_listed_in', file_db,
                           if_exists='replace', index=False)
-df_title_service.to_sql('title_service', engine,
+df_title_service.to_sql('title_service', file_db,
                         if_exists='replace', index=False)

@@ -6,8 +6,7 @@ def connect_execute(query):
     cursor = conn.cursor()
     cursor.execute(query)
     respuesta = cursor.fetchall()
-    conn.close()
-
+    
     return respuesta
 
 def query1(release_year, service, type):

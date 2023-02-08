@@ -154,7 +154,5 @@ df_actor.to_sql('actor', file_db, if_exists='replace', index=False)
 df_listed_in.to_sql('listed_in', file_db, if_exists='replace', index=False)
 df_service.to_sql('service', file_db, if_exists='replace', index=False)
 df_title_actor.to_sql('title_actor', file_db, if_exists='replace', index=False)
-df_title_listed_in.to_sql('title_listed_in', file_db,
-                          if_exists='replace', index=False)
-df_title_service.to_sql('title_service', file_db,
-                        if_exists='replace', index=False)
+df_title_listed_in.to_sql('title_listed_in', file_db, if_exists='replace', index=False)
+df_title_service.to_sql('title_service', file_db, if_exists='replace', index=False)

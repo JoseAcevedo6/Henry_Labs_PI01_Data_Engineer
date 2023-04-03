@@ -1,3 +1,4 @@
 /venv
 /.vscode
 /fast_api/__pycache__
+/fast_api/database/__pycache__

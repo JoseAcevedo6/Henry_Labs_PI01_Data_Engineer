@@ -1,8 +1,8 @@
 from fastapi import FastAPI, status, responses, encoders
 import uvicorn
 
-from database import Func, Column, Session, Desc
-from models import Actor, Listed_in, Movie, Serie, Service, Title, Movie_title_actor, Movie_title_listed_in,\
+from database.config import Func, Column, Session, Desc
+from database.models import Actor, Listed_in, Movie, Serie, Service, Title, Movie_title_actor, Movie_title_listed_in,\
     Movie_title_service, Serie_title_actor, Serie_title_listed_in, Serie_title_service
 
 
@@ -123,4 +123,4 @@ def get_actor(platform: str, release_year: int):
 
 
 if __name__ == '__main__':
-    uvicorn.run('endpoints:app', host='127.0.0.1', port=8080, reload=True)
+    uvicorn.run('main:app', host='127.0.0.1', port=8080, reload=True)

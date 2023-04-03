@@ -1,6 +1,0 @@
-{
-    "python.linting.enabled": true,
-    "python.linting.pycodestyleEnabled": true,
-    "python.linting.pylintArgs": ["--load-plugins", "pylint_django"],
-    "python.linting.pycodestyleArgs": ["--max-line-length=120" ]
-}

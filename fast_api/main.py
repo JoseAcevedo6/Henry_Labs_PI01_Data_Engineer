@@ -2,7 +2,7 @@ from fastapi import FastAPI, status, responses, encoders
 import uvicorn
 
 from database.config import Func, Column, Session, Desc
-from database.models import Actor, Listed_in, Movie, Serie, Service, Title, Movie_title_actor, Movie_title_listed_in,\
+from database.models import Actor, Listed_in, Movie, Serie, Service, Title, Movie_title_actor, Movie_title_listed_in, \
     Movie_title_service, Serie_title_actor, Serie_title_listed_in, Serie_title_service
 
 

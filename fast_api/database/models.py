@@ -1,9 +1,9 @@
+from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
 
-from .config import Base, Engine
-# To create the models, delete the dot from '.config' import and execute it, then put it back so main.py can run.
-# Don't forget save it.
+
+Base = declarative_base()
 
 
 class Actor(Base):
@@ -102,4 +102,4 @@ class Title(Base):
     serie_title_service = relationship('Serie_title_service', backref='title')
 
 
-Base.metadata.create_all(bind=Engine)
+base_metadata = Base.metadata

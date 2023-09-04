@@ -1,5 +1,4 @@
 from sqlalchemy import create_engine, func, sql, desc
-from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 
@@ -14,5 +13,3 @@ Func = func
 Column = sql.column
 
 Desc = desc
-
-Base = declarative_base()
